@@ -3,11 +3,11 @@
 import Image from "@/node_modules/next/image"
 import { CustomButtonProps } from "@/types/index";
 
-const CustomButton = ( {title, containerStyles, hundleClick}: CustomButtonProps) => {
+const CustomButton = ( {title, containerStyles, hundleClick, btnType}: CustomButtonProps) => {
   return (
-    <button disabled={false} type={"button"} className={`custom-btn ${containerStyles}`}
+    <button disabled={false} type={btnType || "button"} className={`custom-btn ${containerStyles}`}
             onClick={() => {}}>
-        <span className={"flex-1"}>title</span>
+        <span className={"flex-1"}>{title}</span>
     </button>
   )
 }

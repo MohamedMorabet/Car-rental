@@ -1,11 +1,11 @@
 "use client";
 
-import Image  from '@/node_modules/next/image';
+import Image from '@/node_modules/next/image';
 import CustomButton from './CustomButton';
 
 const Hero = () => {
   const hundleScroll = () => {
-    
+
   }
 
 
@@ -21,16 +21,16 @@ const Hero = () => {
         </p>
 
         <CustomButton title="Explore Cars"
-                      containerStyles="bg-primary-blue text-white rounded-full mt-10"
-                      hundleClick={hundleScroll}/>
+          containerStyles="bg-primary-blue text-white rounded-full mt-10"
+          hundleClick={hundleScroll} />
       </div>
       <div className='hero__image-container'>
         <div className='hero__image'>
-          <Image src="/hero.png" alt="hero" fill className="object-contain"/>
+          <Image src="/hero.png" alt="hero" fill className="object-contain" />
         </div>
-        <div className='hero__image-overlay'>
+      </div>
+      <div className='hero__image-overlay'>
 
-        </div>
 
       </div>
     </div>
