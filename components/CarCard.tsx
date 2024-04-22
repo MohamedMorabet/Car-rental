@@ -1,7 +1,7 @@
 "use client"  //bcz we using hooks
 
 import { useState } from 'react'  // to be able to manage the open state of the model thats going to pop up
-import Image from 'next/image'
+import Image from '@/node_modules/next/image'
 import { CarProps } from '@/types/index'
 import CustomButton from './CustomButton'
 import { calculateCarRent } from '@/utils/index'
@@ -14,7 +14,7 @@ interface CarCardProps {
 const CarCard = ({ Car }: CarCardProps) => {
     const { city_mpg, year, make, model, transmission, drive } = Car
 
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     const carRent =calculateCarRent(city_mpg, year);
     return (
@@ -77,11 +77,11 @@ const CarCard = ({ Car }: CarCardProps) => {
                         textStyles="text-white text-[14px] leading-[17px] font-bold"
                         rightIcon="/right-arrow.svg"
                         hundleClick={() => setIsOpen(true)}
-                    />
+                        />
                 </div>
             </div>
 
-            <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} Car={Car} />
+            <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={Car} />
         </div>
     )
 }
