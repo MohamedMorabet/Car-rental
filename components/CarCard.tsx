@@ -4,7 +4,7 @@ import { useState } from 'react'  // to be able to manage the open state of the 
 import Image from '@/node_modules/next/image'
 import { CarProps } from '@/types/index'
 import CustomButton from './CustomButton'
-import { calculateCarRent } from '@/utils/index'
+import { calculateCarRent, generateCarImageUrl } from '@/utils/index'
 import CarDetails from './CarDetails'
 
 interface CarCardProps {
@@ -32,7 +32,7 @@ const CarCard = ({ Car }: CarCardProps) => {
             </p>
 
             <div className='relative w-full h-40 my-3 object-contain'>
-                <Image  src="/hero.png"
+                <Image  src={generateCarImageUrl(Car, '')}
                         alt="car model" 
                         className="object-contain" 
                         fill priority />
