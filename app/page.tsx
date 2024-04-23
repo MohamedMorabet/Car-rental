@@ -3,10 +3,17 @@ import CustomFilter from "@/components/CustomFilter";
 import SearchBar from "@/components/SearchBar";
 import { fetchCars } from "@/utils/index";
 import CarCard from "@/components/CarCard";
+import { fuels, yearsOfProduction } from "@/constants/index";
 
-export default async function Home() {
+export default async function Home({searchParams}) {
 
-  const allCars = await fetchCars();
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || "",
+    year: searchParams.year || 2024,
+    fuel: searchParams.fuel || "",
+    limit: searchParams.limit || 10,
+    model: searchParams.model || "",
+  });
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
@@ -21,14 +28,14 @@ export default async function Home() {
           <p>Explore the cars you might like</p>
         </div>
 
-        <div className="home_filters">
+        <div className="home__filters">
           {/* the searchbar will be there */}
           <SearchBar />
 
-          <div className="home_filter-container">
+          <div className="home__filter-container">
             {/* costum filter component */}
-            <CustomFilter />
-            <CustomFilter />
+            <CustomFilter title="fuel" options={fuels}/>
+            <CustomFilter title="fuel" options={yearsOfProduction}/>
           </div>
 
         </div> 
@@ -46,7 +53,7 @@ export default async function Home() {
                 </div>
               </section>
             ) : (
-              <div className="home_error-container">
+              <div className="home__error-container">
                 <h2 className="text-black text-xl font-bold">Oops, no results</h2>
                 <p>{allCars?.message}</p>
               </div>
