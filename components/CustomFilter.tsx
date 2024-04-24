@@ -10,17 +10,7 @@ import { updateSearchParams } from '@/utils/index';
 
 const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
 
-  // const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
-
-
-  // const hundleUpdateParams = (e: { title: string; value: string }) => {
-  //   const newPathname = updateSearchParams(title, e.value.toLowerCase());
-
-    
-  //   router.push(newPathname)
-  // }
-
 
   return (
     <div className='w-fit'>
