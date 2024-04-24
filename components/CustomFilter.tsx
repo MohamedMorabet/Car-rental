@@ -8,18 +8,18 @@ import { CustomFilterProps } from '@/types/index';
 import { updateSearchParams } from '@/utils/index';
 
 
-const CustomFilter = ({ title, options }: CustomFilterProps) => {
+const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
 
-  const router = useRouter();
+  // const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
 
 
-  const hundleUpdateParams = (e: { title: string; value: string }) => {
-    const newPathname = updateSearchParams(title, e.value.toLowerCase());
+  // const hundleUpdateParams = (e: { title: string; value: string }) => {
+  //   const newPathname = updateSearchParams(title, e.value.toLowerCase());
 
     
-    router.push(newPathname)
-  }
+  //   router.push(newPathname)
+  // }
 
 
   return (
@@ -27,7 +27,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
       <Listbox  value={selected} 
                 onChange={
                   (e) => {setSelected(e);
-                  hundleUpdateParams(e);
+                  setFilter(e.value);
                 } }
               >
         <div className='relative w-fit z-10'>
